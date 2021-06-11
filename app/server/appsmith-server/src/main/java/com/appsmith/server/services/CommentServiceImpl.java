@@ -139,10 +139,7 @@ public class CommentServiceImpl extends BaseService<CommentRepository, Comment, 
                         List<Mono<Notification>> monos = new ArrayList<>();
                         for (String username : usernames) {
                             if (!username.equals(user.getUsername())) {
-                                final CommentNotification notification = new CommentNotification();
-                                notification.setComment(savedComment);
-                                notification.setForUsername(username);
-                                monos.add(notificationService.create(notification));
+                                monos.add(notificationService.createNotification(savedComment, username));
                             }
                         }
 
@@ -235,10 +232,7 @@ public class CommentServiceImpl extends BaseService<CommentRepository, Comment, 
                     List<Mono<Notification>> monos = new ArrayList<>();
                     for (String username : usernames) {
                         if (!username.equals(user.getUsername())) {
-                            final CommentThreadNotification notification = new CommentThreadNotification();
-                            notification.setCommentThread(commentThread);
-                            notification.setForUsername(username);
-                            monos.add(notificationService.create(notification));
+                            monos.add(notificationService.createNotification(commentThread, username));
                         }
                     }
 
