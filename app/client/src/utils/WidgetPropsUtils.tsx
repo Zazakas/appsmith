@@ -528,7 +528,7 @@ export const calculateDynamicHeight = (
   } = {},
   presentMinimumHeight = CANVAS_DEFAULT_HEIGHT_PX,
 ) => {
-  let minmumHeight = presentMinimumHeight;
+  let minimumHeight = presentMinimumHeight;
   const nextAvailableRow = nextAvailableRowInContainer(
     MAIN_CONTAINER_WIDGET_ID,
     canvasWidgets,
@@ -545,9 +545,9 @@ export const calculateDynamicHeight = (
     calculatedCanvasHeight < screenHeight &&
     calculatedMinHeight !== presentMinimumHeight
   ) {
-    minmumHeight = calculatedMinHeight;
+    minimumHeight = calculatedMinHeight;
   }
-  return minmumHeight;
+  return minimumHeight;
 };
 
 export const migrateInitialValues = (
